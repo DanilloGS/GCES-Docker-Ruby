@@ -1,5 +1,10 @@
 name: GCES CI
 on: push
+
+defaults:
+  run:
+    working-directory: aplicacao
+
 jobs:
   Build:
     runs-on: ubuntu-latest
@@ -10,8 +15,8 @@ jobs:
         with:
           ruby-version: "3.0.0"
       - name: Run tests
-        run: bundle exec aplicacao/rake
+        run: bundle exec rake
       - name: Install dependencies
         run: bundle install
       - name: Run tests
-        run: bundle exec aplicacao/rake
+        run: bundle exec rake
