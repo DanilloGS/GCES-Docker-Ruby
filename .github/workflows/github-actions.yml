@@ -2,6 +2,7 @@ name: GCES CI
 on: push
 
 defaults:
+  run: docker network create network-gces
   run:
     working-directory: ./aplicacao
 
@@ -10,8 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Calling Docker
-        working-directory: ./aplicacao
-        run: docker network create network-gces
       - name: Building app
         run: docker-compose up -d
