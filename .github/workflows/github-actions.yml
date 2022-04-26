@@ -1,7 +1,7 @@
 name: GCES CI
 on: push
 jobs:
-  Explore-GitHub-Actions:
+  Build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -9,11 +9,9 @@ jobs:
         uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
         with:
           ruby-version: "3.0.0"
+      - name: Run tests
+        run: bundle exec aplicacao/rake
       - name: Install dependencies
-        run: ls
-      # - name: Run tests
-      #   run: bundle exec rake
-      # - name: Install dependencies
-      #   run: bundle install
-      # - name: Run tests
-      #   run: bundle exec rake
+        run: bundle install
+      - name: Run tests
+        run: bundle exec aplicacao/rake
