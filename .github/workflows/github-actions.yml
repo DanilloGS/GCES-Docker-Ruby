@@ -2,9 +2,9 @@ name: GCES CI
 on: push
 
 defaults:
-  run: docker network create network-gces
   run:
     working-directory: ./aplicacao
+    run: docker network create network-gces
 
 jobs:
   Build:
