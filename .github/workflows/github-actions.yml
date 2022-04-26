@@ -10,10 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
-        with:
-          ruby-version: "3.0.0"
       - name: Calling Docker
         working-directory: ./aplicacao
-        run: docker network create gces-network && docker-compose up -d
+        run: docker network create gces-network
+      - name: Building app
+        run: docker-compose up -d
