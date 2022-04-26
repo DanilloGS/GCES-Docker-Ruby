@@ -16,7 +16,7 @@ jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-        run: actions
+      - actions
       - name: Run tests
         run: docker network create gces-network
       - name: Install dependencies
