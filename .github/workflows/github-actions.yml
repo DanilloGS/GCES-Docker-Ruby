@@ -5,14 +5,19 @@ defaults:
   run:
     working-directory: aplicacao
 
+actions:
+  - uses: actions/checkout@v3
+  - name: Set up Ruby
+    uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
+    with:
+      ruby-version: "3.0.0"
+
 jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Ruby
-        uses: ruby/setup-ruby@359bebbc29cbe6c87da6bc9ea3bc930432750108
-        with:
-          ruby-version: "3.0.0"
+        run: actions
       - name: Run tests
-        run: docker network create network-gces
+        run: docker network create gces-network
+      - name: Install dependencies
+        run: bundle install
