@@ -3,7 +3,7 @@ on: push
 
 defaults:
   run:
-    working-directory: ./aplicacao
+    working-directory: aplicacao
 
 jobs:
   Build:
