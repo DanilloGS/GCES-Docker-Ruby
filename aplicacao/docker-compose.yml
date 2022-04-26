@@ -20,6 +20,11 @@ services:
     volumes:
       - .db_volume:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: biblioteca_pessoal
+      POSTGRES_PASSWORD: postgres
     ports:
       - 5432
+      
+networks:
+  default:
+    external:
+      name: network-gces
