@@ -10,6 +10,7 @@ services:
     depends_on:
       - app
   app:  
+    restart: always
     build: 
       context: ./
       dockerfile: ./docker/app/Dockerfile
