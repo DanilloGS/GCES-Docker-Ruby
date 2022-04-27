@@ -4,12 +4,22 @@ on: push
 defaults:
   run:
     working-directory: ./aplicacao
-    run: docker network create network-gces
 
 jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Creating Docker Network
+        run: docker network create network-gces
       - name: Building app
         run: docker-compose up -d
+  Tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Creating Docker Network
+        run: docker network create network-gces
+      - name: Building app
+        run: docker-compose run app bundle exec rails db:reset
+        run: docker-compose run app rspec
