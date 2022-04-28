@@ -4,7 +4,7 @@ services:
     image: nginx
     build:
       context: ./
-      dockerfile: ./docker/web/Dockerfile
+      dockerfile: ./docker/web/dockerfile
     ports:
       - 80:80
     depends_on:
@@ -13,7 +13,7 @@ services:
     restart: always
     build: 
       context: ./
-      dockerfile: ./docker/app/Dockerfile
+      dockerfile: ./docker/app/dockerfile
     depends_on:
       - database
   database:
