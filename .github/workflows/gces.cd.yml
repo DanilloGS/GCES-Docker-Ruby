@@ -25,6 +25,6 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
-          context: "./aplicacao/docker/app"
+          context: "{{defaultContext}}/aplicacao/docker/app"
           push: true
           tags: danillogs/gces-2022-2:latest
