@@ -3,12 +3,14 @@ name: GCES CD
 on:
   push:
     branches: [master]
+  pull_request:
+    branches: "master"
 
 jobs:
-  Build:
+  build:
     uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@master
   Deploy:
-    needs: Build
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
