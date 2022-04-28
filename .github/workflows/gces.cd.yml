@@ -11,7 +11,7 @@ on:
 
 jobs:
   ci-script:
-    uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@main
+    uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@master
   docker:
     needs: ci-script
     runs-on: ubuntu-latest
