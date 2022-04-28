@@ -4,7 +4,7 @@ on: push
 
 jobs:
   Build:
-    uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@master
+    uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@CD-Gces
   Deploy:
     needs: Build
     runs-on: ubuntu-latest
