@@ -3,10 +3,10 @@ name: GCES CD
 on: push
 
 jobs:
-  ci-script:
+  Build:
     uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@master
-  docker:
-    needs: ci-script
+  Deploy:
+    needs: Build
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
