@@ -1,19 +1,12 @@
 name: GCES CD
 
-# on:
-#   push:
-#     branches:
-#       - "master"
-
-on:
-  pull_request:
-    branches: "master"
-
+on: push:
+    
 jobs:
-  ci-script:
-    uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@master
+  # ci-script:
+  #   uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@master
   docker:
-    needs: ci-script
+    # needs: ci-script
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
@@ -29,4 +22,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: danillogs/gces-2022-2:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/gces-2022-2:latest
