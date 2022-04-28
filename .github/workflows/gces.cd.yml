@@ -3,7 +3,7 @@ name: GCES CD
 on:
   push:
     branches:
-      - "main"
+      - "master"
 
 jobs:
   ci-script:
@@ -25,4 +25,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: danillogs/app:latest
+          tags: danillogs/gces-2022-2:latest
