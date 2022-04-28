@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@master
+    uses: ./.github/workflows/gces.ci.yml
   Deploy:
     needs: build
     runs-on: ubuntu-latest
