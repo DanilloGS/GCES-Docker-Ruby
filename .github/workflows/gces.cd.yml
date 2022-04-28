@@ -1,7 +1,7 @@
 name: GCES CD
 
-on: push:
-    
+on: push
+
 jobs:
   # ci-script:
   #   uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@master
