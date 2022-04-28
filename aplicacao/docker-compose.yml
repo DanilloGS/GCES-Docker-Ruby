@@ -12,8 +12,7 @@ services:
   app:  
     restart: always
     build: 
-      context: ./
-      dockerfile: ./docker/app/dockerfile
+      context: .
     depends_on:
       - database
   database:
