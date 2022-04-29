@@ -8,7 +8,7 @@ COPY Gemfile* /rails_app/
 
 WORKDIR /rails_app
 
-RUN gem install bundler && bundle install
+RUN gem install bundler -v 2.2.3 && bundle install
 
 WORKDIR /
 
