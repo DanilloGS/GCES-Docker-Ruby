@@ -7,10 +7,10 @@ on:
   #   branches: "master"
 
 jobs:
-  # build:
-  #   uses: ./.github/workflows/gces.ci.yml
+  build:
+    uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@master
   Deploy:
-    # needs: build
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
@@ -27,4 +27,4 @@ jobs:
         with:
           context: "{{defaultContext}}:aplicacao"
           push: true
-          tags: danillogs/gces-2022-2:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/gces-2022-2:latest
