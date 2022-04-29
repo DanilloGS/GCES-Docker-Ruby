@@ -10,14 +10,14 @@ WORKDIR /rails_app
 
 RUN ls
 
-# RUN bundle install
+RUN bundle install
 
-# WORKDIR /
+WORKDIR /
 
-# RUN mkdir tmp/pids
+RUN mkdir tmp/pids
 
-# COPY . ./
+COPY . ./
 
-# EXPOSE 3000
+EXPOSE 3000
 
-# CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
+CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
