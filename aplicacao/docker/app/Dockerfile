@@ -8,9 +8,9 @@ COPY Gemfile* /rails_app/
 
 WORKDIR /rails_app
 
-# RUN bundle install
+RUN gem install bundler
 
-RUN bundle install --full-index
+RUN bundle install
 
 WORKDIR /
 
