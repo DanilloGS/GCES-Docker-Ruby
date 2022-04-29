@@ -8,14 +8,16 @@ COPY Gemfile* /rails_app/
 
 WORKDIR /rails_app
 
-RUN gem install bundler -v 2.2.3 && bundle install
+RUN ls
 
-WORKDIR /
+# RUN bundle install
 
-RUN mkdir tmp/pids
+# WORKDIR /
 
-COPY . ./
+# RUN mkdir tmp/pids
 
-EXPOSE 3000
+# COPY . ./
 
-CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
+# EXPOSE 3000
+
+# CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
