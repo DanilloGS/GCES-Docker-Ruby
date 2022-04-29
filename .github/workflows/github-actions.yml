@@ -1,5 +1,6 @@
 name: GCES CI
 on:
+  workflow_call:
   pull_request:
     branches: "master"
   workflow_dispatch:
