@@ -18,4 +18,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Login on Docker
-        uses: docker login --username=danillogs --password=${{ secrets.DOCKERHUB_TOKEN }}
+        run: docker login --username=danillogs --password=${{ secrets.DOCKERHUB_TOKEN }}
