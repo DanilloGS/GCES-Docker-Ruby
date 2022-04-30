@@ -17,7 +17,7 @@ jobs:
       - name: Creating Docker Network
         run: docker network create network-gces
       - name: Building app
-        run:
+        run: docker-compose up -d
   Tests:
     runs-on: ubuntu-latest
     steps:
