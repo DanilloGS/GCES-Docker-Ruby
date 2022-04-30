@@ -3,7 +3,7 @@ name: GCES CI
 on:
   workflow_call:
   pull_request:
-    branches: "master"
+    branches: "main"
   workflow_dispatch:
 
 defaults:
@@ -18,7 +18,7 @@ jobs:
       - name: Creating Docker Network
         run: docker network create network-gces
       - name: Building app
-        run: docker-compose up -d
+        run:
   Tests:
     runs-on: ubuntu-latest
     steps:
@@ -29,11 +29,11 @@ jobs:
         run: docker-compose run app bundle exec rails db:reset
       - name: Running tests
         run: docker-compose run app rspec
-  # Lint:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: Creating Docker Network
-  #       run: docker network create network-gces
-  #     - name: Running Linter
-  #       run: docker run --rm --volume "$PWD:/app" kalashnikovisme/docker-rubocop:ruby-3.0.0
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Creating Docker Network
+        run: docker network create network-gces
+      - name: Running Linter
+        run: docker run --rm --volume "$PWD:/app" kalashnikovisme/docker-rubocop:ruby-3.0.0
