@@ -14,8 +14,11 @@ jobs:
   build:
     uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@master
   Deploy:
-    needs: build
+    # needs: build
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      - name: Creating Docker Network
+        run: docker network create network-gces
       - name: Login on Docker
         run: docker login --username=danillogs --password=${{ secrets.DOCKERHUB_TOKEN }}
