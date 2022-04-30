@@ -1,0 +1,26 @@
+name: GCES CD
+
+on:
+  pull_request:
+    branches: "main"
+
+defaults:
+  run:
+    working-directory: ./aplicacao
+
+jobs:
+  build:
+    uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@main
+  Deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Creating Docker Network
+        run: docker network create network-gces
+      - name: Login on Docker
+        run: docker login --username=danillogs --password=${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Creating Image
+        run: docker-compose build app
+      - name: Pushing Image
+        run: docker-compose push app
