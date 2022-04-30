@@ -1,7 +1,7 @@
 name: GCES CD
 
 on:
-  pull_request:
+  push:
     branches: "main"
 
 defaults:
