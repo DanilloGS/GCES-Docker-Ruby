@@ -22,3 +22,7 @@ jobs:
         run: docker network create network-gces
       - name: Login on Docker
         run: docker login --username=danillogs --password=${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Creating Image
+        run: docker-compose build app
+      - name: Pushing Image
+        run: docker-compose push app

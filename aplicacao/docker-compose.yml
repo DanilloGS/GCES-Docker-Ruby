@@ -10,6 +10,7 @@ services:
     depends_on:
       - app
   app:  
+    image: danillogs/gces-2022-2
     restart: always
     build: 
       context: ./

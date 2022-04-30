@@ -8,8 +8,6 @@ COPY Gemfile* /rails_app/
 
 WORKDIR /rails_app
 
-RUN ls
-
 RUN bundle install
 
 WORKDIR /
