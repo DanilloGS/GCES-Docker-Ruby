@@ -6,6 +6,10 @@ on:
   # pull_request:
   #   branches: "master"
 
+defaults:
+  run:
+    working-directory: ./aplicacao
+
 jobs:
   build:
     uses: DanilloGS/GCES-Docker-Ruby/.github/workflows/gces.ci.yml@master
